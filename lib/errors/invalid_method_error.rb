@@ -1,4 +1,4 @@
-class DogecoinClient
+class DogecoinDarkClient
   class InvalidMethodError < StandardError
 
     attr_accessor :message
