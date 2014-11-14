@@ -28,7 +28,7 @@ class DogecoinDarkClient
       self.port = 20102
       self.protocol = :http
       self.user = 'dogecoindarkrpcuser'
-      self.password = 'rpcpasswordhere'
+      self.password = 'rpcpasswordgoeshere'
     end
 
   end
