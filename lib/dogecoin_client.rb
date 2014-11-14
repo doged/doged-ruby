@@ -1,10 +1,10 @@
-require 'dogecoin_client/version'
-require 'dogecoin_client/client'
+require 'dogecoindark_client/version'
+require 'dogecoindark_client/client'
 
-class DogecoinClient
+class DogecoinDarkClient
 
   def initialize(options = {})
-    @client = DogecoinClient::Client.new(options)
+    @client = DogecoinDarkClient::Client.new(options)
   end
 
   # Delegate everything to the 'real' Client
@@ -25,10 +25,10 @@ class DogecoinClient
 
     def initialize
       self.host = 'localhost'
-      self.port = 22555
+      self.port = 20102
       self.protocol = :http
-      self.user = ''
-      self.password = ''
+      self.user = 'dogecoindarkrpcuser'
+      self.password = 'rpcpasswordhere'
     end
 
   end
