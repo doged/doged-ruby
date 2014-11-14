@@ -1,4 +1,4 @@
-class DogecoinClient
+class DogecoinDarkClient
   class RPCError < StandardError
 
     attr_accessor :message
