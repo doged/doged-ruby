@@ -1,31 +1,31 @@
-# DogecoinClient
+# DogecoinDarkClient
 
-DogecoinClient is a gem that makes it easy to work with dogecoin in ruby.
+DogecoinDarkClient is a gem that makes it easy to work with dogecoin in ruby.
 
 ## Dependencies
 
-The only requirement is a running dogecoin daemon ([dogecoind](https://github.com/dogecoin/dogecoin)). Make sure to check out the [doc section](https://github.com/dogecoin/dogecoin/tree/master/doc) and follow the instructions for your os.
-NOTICE: by default dogecoind will only allow local connections.
+The only requirement is a running dogecoindark daemon ([dogecoindarkd](https://github.com/doged/dogedsource)).
+NOTICE: by default dogecoindarkd will only allow local connections.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'dogecoin_client'
+    gem 'dogecoindark_client'
 
 Or install it yourself as:
 
-    $ gem install dogecoin_client
+    $ gem install dogecoindark_client
 
 ## Configuration
 
 If you're using rails you can create an initializer. Here are the default settings:
 
 ```ruby
-# config/initializers/dogecoin_client.rb
+# config/initializers/dogecoindark_client.rb
 DogecoinClient.configure do |config|
     config.host = 'localhost'
-    config.port = 22555
+    config.port = 20102
     config.protocol = :http
     config.user = ''
     config.password = ''
