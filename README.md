@@ -23,35 +23,35 @@ If you're using rails you can create an initializer. Here are the default settin
 
 ```ruby
 # config/initializers/dogecoindark_client.rb
-DogecoinClient.configure do |config|
+DogecoinDarkClient.configure do |config|
     config.host = 'localhost'
     config.port = 20102
     config.protocol = :http
-    config.user = ''
-    config.password = ''
+    config.user = 'dogecoindarkrpcuser'
+    config.password = 'rpcpasswordhere'
 end
 ```
 
 You can also pass config variables as an options hash when creating a new client:
 
 ```ruby
-client = DogecoinClient.new(user: 'my_dogecoind_username', password: 'my_super_secure_password')
+client = DogecoinDarkClient.new(user: 'my_dogecoindarkd_username', password: 'my_super_secure_password')
 ```
 
 ## Example Usage
 
 ```ruby
 # create a new instance of the client
-client = DogecoinClient.new
+client = DogecoinDarkClient.new
 
-# check that dogecoind is running and that our credentials are correct
+# check that dogecoindarkd is running and that our credentials are correct
 if client.valid?
     # get a new wallet address
     new_wallet_addr = client.get_new_address
 
     # get the balance of our new wallet
     my_balance = client.get_balance(new_wallet_addr)
-    puts "I have #{my_balance} doge!"
+    puts "I have #{my_balance} doged!"
 else
     puts 'Something is wrong...'
 end
@@ -80,8 +80,8 @@ end
 </td></tr>
 <tr>
 <td> dump_priv_key </td>
-<td> [dogecoinaddress] </td>
-<td> Reveals the private key corresponding to <dogecoinaddress< </td>
+<td> [dogecoindarkaddress] </td>
+<td> Reveals the private key corresponding to <dogecoindarkaddress< </td>
 <td> Yes
 </td></tr>
 <tr>
@@ -92,14 +92,14 @@ end
 </td></tr>
 <tr>
 <td> get_account </td>
-<td> [dogecoinaddress] </td>
+<td> [dogecoindarkaddress] </td>
 <td> Returns the account associated with the given address. </td>
 <td> No
 </td></tr>
 <tr>
 <td> get_account_address </td>
 <td> [account] </td>
-<td> Returns the current dogecoin address for receiving payments to this account. </td>
+<td> Returns the current dogecoindark address for receiving payments to this account. </td>
 <td> No
 </td></tr>
 <tr>
@@ -153,7 +153,7 @@ end
 <tr>
 <td> get_generate </td>
 <td> </td>
-<td> Returns true or false whether dogecoind is currently generating hashes </td>
+<td> Returns true or false whether dogecoindarkd is currently generating hashes </td>
 <td> No
 </td></tr>
 <tr>
@@ -205,7 +205,7 @@ end
 <tr>
 <td> get_new_address </td>
 <td> [account] </td>
-<td> Returns a new dogecoin address for receiving payments.  If [account] is specified (recommended), it is added to the address book so payments received with the address will be credited to [account]. </td>
+<td> Returns a new dogecoindark address for receiving payments.  If [account] is specified (recommended), it is added to the address book so payments received with the address will be credited to [account]. </td>
 <td> No
 </td></tr>
 <tr>
@@ -216,8 +216,8 @@ end
 </td></tr>
 <tr>
 <td> get_received_by_address </td>
-<td> [dogecoinaddress] [minconf=1] </td>
-<td> Returns the total amount received by <dogecoinaddress< in transactions with at least [minconf] confirmations. While some might consider this obvious, value reported by this only considers *receiving* transactions. It does not check payments that have been made *from* this address. In other words, this is not "getaddressbalance". Works only for addresses in the local wallet, external addresses will always show 0. </td>
+<td> [dogecoindarkaddress] [minconf=1] </td>
+<td> Returns the total amount received by <dogecoindarkaddress< in transactions with at least [minconf] confirmations. While some might consider this obvious, value reported by this only considers *receiving* transactions. It does not check payments that have been made *from* this address. In other words, this is not "getaddressbalance". Works only for addresses in the local wallet, external addresses will always show 0. </td>
 <td> No
 </td></tr>
 <tr>
@@ -296,7 +296,7 @@ end
 </li><li> "amount": total amount received by the address
 </li><li> "confirmations": number of confirmations of the most recent transaction included
 </li></ul>
-<p>To get a list of accounts on the system, execute dogecoind listreceivedbyaddress 0 true
+<p>To get a list of accounts on the system, execute dogecoindarkd listreceivedbyaddress 0 true
 </p>
 </td>
 <td> No
@@ -322,7 +322,7 @@ end
 </td></tr>
 <tr>
 <td> send_from </td>
-<td> [fromaccount] [todogecoinaddress] [amount] [minconf=1] [comment] [comment-to] </td>
+<td> [fromaccount] [todogecoindarkaddress] [amount] [minconf=1] [comment] [comment-to] </td>
 <td> <amount< is a real and is rounded to 8 decimal places. Will send the given amount to the given address, ensuring the account has a valid balance using [minconf] confirmations. Returns the transaction ID if successful (not in JSON object). </td>
 <td> Yes
 </td></tr>
@@ -334,13 +334,13 @@ end
 </td></tr>
 <tr>
 <td> send_to_address </td>
-<td> [dogecoinaddress] [amount] [comment] [comment-to] </td>
+<td> [dogecoindarkaddress] [amount] [comment] [comment-to] </td>
 <td> <amount< is a real and is rounded to 8 decimal places. Returns the transaction ID <txid< if successful. </td>
 <td> Yes
 </td></tr>
 <tr>
 <td> set_account </td>
-<td> [dogecoinaddress] [account] </td>
+<td> [dogecoindarkaddress] [account] </td>
 <td> Sets the account associated with the given address. Assigning address that is already assigned to the same account will create a new address associated with that account. </td>
 <td> No
 </td></tr>
@@ -354,7 +354,7 @@ Generation is limited to [genproclimit] processors, -1 is unlimited. </td>
 </td></tr>
 <tr>
 <td> sign_message </td>
-<td> [dogecoinaddress] [message] </td>
+<td> [dogecoindarkaddress] [message] </td>
 <td> Sign a message with the private key of an address. </td>
 <td> Yes
 </td></tr>
@@ -367,18 +367,18 @@ Generation is limited to [genproclimit] processors, -1 is unlimited. </td>
 <tr>
 <td> stop </td>
 <td> </td>
-<td> Stop dogecoin server. </td>
+<td> Stop dogecoindark server. </td>
 <td> No
 </td></tr>
 <tr>
 <td> validate_address </td>
-<td> [dogecoinaddress] </td>
-<td> Return information about [dogecoinaddress]. </td>
+<td> [dogecoindarkaddress] </td>
+<td> Return information about [dogecoindarkaddress]. </td>
 <td> No
 </td></tr>
 <tr>
 <td> verify_message </td>
-<td> [dogecoinaddress] [signature] [message] </td>
+<td> [dogecoindarkaddress] [signature] [message] </td>
 <td> Verify a signed message. </td>
 <td> No
 </td></tr>
@@ -405,7 +405,7 @@ Generation is limited to [genproclimit] processors, -1 is unlimited. </td>
 
 ## Contributing
 
-For local testing, make sure to replace the user/password in `spec/client_spec.rb` and `spec/dogecoin_client_spec.rb` with the credentials for your local dogecoind.
+For local testing, make sure to replace the user/password in `spec/client_spec.rb` and `spec/dogecoindark_client_spec.rb` with the credentials for your local dogecoindarkd.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
