@@ -1,3 +1,5 @@
+![doged-ruby](http://i.imgur.com/UD1UprA.jpg)
+
 # DogecoinDarkClient
 
 DogecoinDarkClient is a gem that makes it easy to work with dogecoin in ruby.
