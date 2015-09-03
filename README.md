@@ -1,8 +1,8 @@
 ![doged-ruby](http://i.imgur.com/UD1UprA.jpg)
 
-# DogecoinDarkClient
+# The DogecoinDark Ruby Client
 
-DogecoinDarkClient is a gem that makes it easy to work with dogecoin in ruby.
+The DogecoinDark Ruby Client is a gem that makes it easy to work with dogecoin in ruby.
 
 ## Dependencies
 
